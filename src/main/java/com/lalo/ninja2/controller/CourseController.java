@@ -1,5 +1,7 @@
 package com.lalo.ninja2.controller;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -16,7 +18,8 @@ import com.lalo.ninja2.service.CourseService;
 @RequestMapping("/course")
 public class CourseController {
 	
-	private static final String COURSES_VIEW = "Courses";
+	private static final String COURSES_VIEW = "courses";
+	private static final Log LOG = LogFactory.getLog(CourseController.class);
 	
 	@Autowired
 	@Qualifier("courseServiceImpl")
@@ -25,6 +28,7 @@ public class CourseController {
 	@GetMapping("/listCourse")
 	public ModelAndView listAllCourses()
 	{
+		LOG.info("call: listAllCourses( )");
 		ModelAndView mav = new ModelAndView(COURSES_VIEW);
 		mav.addObject("courses", courseService.listAllCourses());
 		return mav;
@@ -33,7 +37,8 @@ public class CourseController {
 	@PostMapping("/addCourse")
 	public String addCourse(@ModelAttribute("course") Course course)
 	{
+		LOG.info("call: addCourse( ) param:" + course.toString());
 		courseService.addCourse(course);
-		return "redirect:/listCourse";
+		return "redirect:/course/listCourse";
 	}
 }

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>Courses</title>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+</head>
+<body>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>
+					Nombre
+				</th>
+				<th>
+					Descripción
+				</th>
+				<th>
+					Precio
+				</th>
+				<th>
+					Hours
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="course: ${courses}">
+				<th >
+					<span th:text="${course.name}"></span>
+				</th>
+				<th>
+					<span th:text="${course.description}"></span>
+				</th>
+				<th>
+					<span th:text="${course.price}"></span>
+				</th>
+				<th>
+					<span th:text="${course.hours}"></span>
+				</th>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
