@@ -6,7 +6,7 @@
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 </head>
-<body>
+<body class="container">
 	<table class="table">
 		<thead>
 			<tr>
@@ -41,5 +41,21 @@
 			</tr>
 		</tbody>
 	</table>
+	
+	<form action="#" th:action="@{/course/addCourse}" th:object="${course}" method="post">
+		<div class="form-group">
+			<label for="name" >Nombre</label>		
+			<input type="text" th:field="*{name}" id="name" class="form-control"/>
+			<label for="description" >Descripción</label>
+			<input type="text" th:field="*{description}" id="description" class="form-control"/>
+			<label for="price" >Precio</label>
+			<input type="text" th:field="*{price}" id="price" class="form-control"/>
+			<label for="hours" >Horas</label>
+			<input type="text" th:field="*{hours}" id="hours" class="form-control"/>
+		</div>
+			<input type="submit" value="Envíar" class="btn btn-primary"/>
+		
+		
+	</form>
 </body>
 </html>
