@@ -42,4 +42,20 @@ public class CourseController {
 		courseService.addCourse(course);
 		return "redirect:/course/listCourse";
 	}
+	
+	@PostMapping("/deleteCourse")
+	public String deleteCourse(@ModelAttribute("course") Course course)
+	{
+		LOG.info("call: addCourse( ) param:" + course.toString());
+		courseService.addCourse(course);
+		return "redirect:/course/listCourse";
+	}
+	
+	@PostMapping("/updateCourse")
+	public String updateCourse(@ModelAttribute("course") Course course)
+	{
+		LOG.info("call: addCourse( ) param:" + course.toString());
+		courseService.addCourse(course);
+		return "redirect:/course/listCourse";
+	}
 }
