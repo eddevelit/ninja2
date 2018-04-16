@@ -44,18 +44,18 @@ public class CourseController {
 	}
 	
 	@PostMapping("/deleteCourse")
-	public String deleteCourse(@ModelAttribute("course") Course course)
+	public String deleteCourse(@ModelAttribute("id") int id)
 	{
-		LOG.info("call: addCourse( ) param:" + course.toString());
-		courseService.addCourse(course);
+		LOG.info("call: deleteCourse( ) param: " + id);
+		courseService.removeCourse(id);
 		return "redirect:/course/listCourse";
 	}
 	
 	@PostMapping("/updateCourse")
 	public String updateCourse(@ModelAttribute("course") Course course)
 	{
-		LOG.info("call: addCourse( ) param:" + course.toString());
-		courseService.addCourse(course);
+		LOG.info("call: updateCourse( ) param:" + course.toString());
+		courseService.updateCourse(course);
 		return "redirect:/course/listCourse";
 	}
 }

@@ -1,61 +1,72 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="utf-8"/>
-<title>Courses</title>
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <meta charset="utf-8" />
+    <title>Courses</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 </head>
+
 <body class="container">
-	<table class="table">
-		<thead>
-			<tr>
-				<th>
-					Nombre
-				</th>
-				<th>
-					Descripción
-				</th>
-				<th>
-					Precio
-				</th>
-				<th>
-					Hours
-				</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr th:each="course: ${courses}">
-				<th >
-					<span th:text="${course.name}"></span>
-				</th>
-				<th>
-					<span th:text="${course.description}"></span>
-				</th>
-				<th>
-					<span th:text="${course.price}"></span>
-				</th>
-				<th>
-					<span th:text="${course.hours}"></span>
-				</th>
-			</tr>
-		</tbody>
-	</table>
-	
-	<form action="#" th:action="@{/course/addCourse}" th:object="${course}" method="post">
-		<div class="form-group">
-			<label for="name" >Nombre</label>		
-			<input type="text" th:field="*{name}" id="name" class="form-control"/>
-			<label for="description" >Descripción</label>
-			<input type="text" th:field="*{description}" id="description" class="form-control"/>
-			<label for="price" >Precio</label>
-			<input type="text" th:field="*{price}" id="price" class="form-control"/>
-			<label for="hours" >Horas</label>
-			<input type="text" th:field="*{hours}" id="hours" class="form-control"/>
-		</div>
-			<input type="submit" value="Agregar curso" class="btn btn-primary"/>
-		
-		
-	</form>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Precio</th>
+                <th>Hours</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="course: ${courses}">
+                <th><span th:text="${course.name}"></span></th>
+                <th><span th:text="${course.description}"></span></th>
+                <th><span th:text="${course.price}"></span></th>
+                <th><span th:text="${course.hours}"></span></th>
+            </tr>
+        </tbody>
+    </table>
+    <form action="#" th:action="@{/course/addCourse}" th:object="${course}" method="post">
+        <div class="form-group">
+            <label for="name">Nombre</label> 
+            <input type="text" th:field="*{name}" id="name" class="form-control" /> 
+            <label for="description">Descripción</label> 
+            <input type="text" th:field="*{description}" id="description" class="form-control" /> 
+            <label for="price">Precio</label> 
+            <input type="text" th:field="*{price}" id="price" class="form-control" /> 
+            <label for="hours">Horas</label>
+            <input type="text" th:field="*{hours}" id="hours" class="form-control" />
+        </div>
+        <input type="submit" value="Agregar curso" class="btn btn-success" />
+    </form>
+    <hr>
+    <form action="#" th:action="@{/course/deleteCourse}" th:object="${course}" method="post">
+        <div class="form-group">
+            <div class="input-group mb-3">
+                <input th:field="*{id}" type="text" class="form-control" placeholder="id curso" aria-label="id curso" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <input class="btn btn-outline-secondary" type="submit" value="Eliminar"></input>
+                </div>
+            </div>
+        </div>
+    </form>
+    <hr>
+    <form action="#" th:action="@{/course/updateCourse}" th:object="${course}" method="post">
+        <div class="form-group">
+           <label for="idAct">Id</label>
+            <input type="text" th:field="*{id}" id="idAct" class="form-control" />
+            <label for="name">Nombre</label>
+            <input type="text" th:field="*{name}" id="name" class="form-control" /> 
+            <label for="description">Descripción</label> 
+            <input type="text" th:field="*{description}" id="description" class="form-control" /> 
+            <label for="price">Precio</label> 
+            <input type="text" th:field="*{price}" id="price" class="form-control" /> 
+            <label for="hours">Horas</label>
+            <input type="text" th:field="*{hours}" id="hours" class="form-control" />
+        </div>
+        <input type="submit" value="Actualizar curso" class="btn btn-primary" />
+    </form>
 </body>
+
 </html>

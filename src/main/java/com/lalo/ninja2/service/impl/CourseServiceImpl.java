@@ -34,12 +34,14 @@ public class CourseServiceImpl implements CourseService{
 
 	@Override
 	public int removeCourse(int id) {
+		LOG.info("Call: removeCourse");
 		courseRepository.deleteById(id);
 		return 0;
 	}
 
 	@Override
 	public Course updateCourse(Course course) {
+		LOG.info("Call: updateCourse");
 		return courseRepository.save(course);
 	}
 	
